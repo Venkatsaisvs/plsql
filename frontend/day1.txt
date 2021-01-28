@@ -1,0 +1,2 @@
+An application that is stored in web app server is called web application.
+some portion of the web application will be running in the server itself they are called

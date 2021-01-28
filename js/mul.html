@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function tab () {  
+          let num = parseInt(document.getElementById("num1").value);
+        if(isNaN(num))
+            return ;
+        var op='';
+        op+='<TABLE>';
+        for( let i=1;i<10;i++) {
+            op+='<TR>';
+            op+=`<TD>${num}</TD><TD>*</TD><TD>${i}</TD><TD>=</TD><TD>${num*i}</TD>`;
+            op+='</TR>';
+        }
+        op+='</TABLE>';
+        document.getElementById("output").innerHTML=op;
+    }
+    </script>
+</head>
+<body>
+    <input type="text" name="num1" id="num1" onkeyup="tab()">
+    <p id="output"></p>
+</body>
+</html>

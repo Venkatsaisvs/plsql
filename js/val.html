@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="val.js"></script>
+    <!-- <script>
+        function rangeDrag() {
+            console.log("hii")
+            let range = document.getElementById("my_range").value;
+            document.getElementById("rangeOp").value = range;
+        }
+        function clap() {
+            console.log("gols");
+        }
+    </script> -->
+</head>
+
+<body>
+    <div class="container" style="padding-top: 5%;">
+        <h1 class="text-center">Registration Form</h1>
+        <form style="max-width: 500px; margin: auto;">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Error!</strong> You should check in on some of those fields below.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="firstName" id="firstName" placeholder="Enter your name" onblur="velName()">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="lastName" id="lastName"
+                    placeholder="Enter your last name">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="repassword" name="Cpassword" id="Cpassword"
+                    placeholder="Confirm Password">
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    Gender
+                    <label class="px-4">
+                        <input class="form-check-input" type="radio" name="gender" id="rdMale"> Male
+                    </label>
+                    <label class="px-4">
+                        <input class="form-check-input" type="radio" name="gender" id="rdFemale"> Female
+                    </label>
+                    <label class="px-4">
+                        <input class="form-check-input" type="radio" name="gender" id="rdFemale"> Others
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    Documents
+                    <label><input class="form-check-input px-2" type="checkbox"  name="documents" id="pan"> Pan Card
+                    </label>
+                    <label><input class="form-check-input px-2" type="checkbox"  name="documents" id="addhar"> Aadhar
+                        card </label>
+                    <label><input class="form-check-input px-2" type="checkbox"  name="documents" id="passport">
+                        Passsport </label>
+                    <label><input class="form-check-input px-2" type="checkbox"  name="documents" id="dl"> Driving
+                        Licence </label>
+                </div>
+            </div>
+            <div class="form-group">
+                Qualifications
+                <select name="qualification" id="qual" class="form-control">
+                    <option value="hight_school">High School</option>
+                    <option value="inter">Intermediate</option>
+                    <option value="ug">Under graduate</option>
+                    <option value="pg">Post graduate</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input class="form-control-range" type="range" id="my_range" min="0" max="10" value="0" ondrag="clap()">
+                <label id="rangeOp"></label>
+            </div>
+            <div class="form-group text-center">
+                <button type="button" class="btn btn-warning" onclick="parentTrav()">Click me</button>
+                <input type="submit" class="btn btn-success">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

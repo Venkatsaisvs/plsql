@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getPosition()
+        {
+           // alert('get position method is called');
+            if(navigator.geolocation)
+            {
+             //   alert('getting the location');
+                navigator.geolocation.getCurrentPosition(fn1);
+            }else{
+                alert("Not supported");
+            }
+        }
+        function fn1(position)
+        {
+            var x=position.coords.latitude;
+            var y=position.coords.longitude;
+            alert(x+","+y);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="getPosition()">Click to get location</button>
+</body>
+</html>

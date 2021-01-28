@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+          $("#add").click(function(){
+            let newItem = $("#text").val();
+            console.log(newItem);
+            let data = sessionStorage.getItem("data");
+            if(data == null) {
+                data = newItem;
+            } else {
+                data += `,${newItem}`;
+            }
+            sessionStorage.setItem("data", data);
+            updateDiv();
+          })
+          $("#clear").click(function() {
+              sessionStorage.clear();
+              updateDiv();
+          })
+
+          function updateDiv() {
+              let names = sessionStorage.getItem("data");
+              let namesArray = names == null ? "" : names.split(",");
+              let res = '<ul>';
+              for (nameI of namesArray) {
+                 res += `<li>${nameI}</li>`;
+              }
+              res += '</ul>';
+              $("div").html(res);
+          }
+          $("div").on("click","li",function(){
+              let names = sessionStorage.getItem("data");
+          })
+      })   
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="text">
+    <input type="button" value="Add content" id="add">
+    <input type="button" value="Clear all" id="clear">
+    <div></div>
+</body>
+</html>

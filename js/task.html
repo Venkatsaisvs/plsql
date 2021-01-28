@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun1() {
+            alert("this is function 1");
+        }
+        function fun2() {
+            alert("this is function 2");
+        }
+        function fun3() {
+            alert("this is function 3");
+        }
+
+        function assoListners(obj) {
+            let x = document.getElementById("b1");
+            if (obj.checked) {
+                switch (obj.value) {
+                    case "html": x.addEventListener('click', fun1);
+                        break;
+                    case "java": x.addEventListener('click', fun2);
+                        break;
+                    case "css": x.addEventListener('click', fun3);
+                        break;
+                }
+            } else {
+                switch (obj.value) {
+                    case "html": x.removeEventListener('click', fun1);
+                        break;
+                    case "java": x.removeEventListener('click', fun2);
+                        break;
+                    case "css": x.removeEventListener('click', fun3);
+                        break;
+                }
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <label>
+        <input type="checkbox" name="check" onchange="assoListners(this)" id="check1" value="html"> function 1
+    </label>
+
+    <label>
+        <input type="checkbox" name="check" onchange="assoListners(this)" id="check2" value="java"> function 2
+    </label>
+    <label>
+        <input type="checkbox" name="check" onchange="assoListners(this)" id="check3" value="css"> function 3
+    </label>
+    <br>
+    <button id="b1">Click me</button>
+    <script>
+        var arr = document.getElementsByName("check");
+        for (let x in arr) {
+            console.log(x);
+            //  x.addEventListener("change",assoListners(this));
+        }
+
+    </script>
+</body>
+
+</html>
