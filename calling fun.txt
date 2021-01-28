@@ -1,0 +1,15 @@
+
+DECLARE
+ current_s_dob DATE;
+ current_age NUMBER;
+BEGIN
+ SELECT s_dob
+ INTO current_s_dob
+ FROM student
+ WHERE s_last = 'Black'
+ AND s_first = 'Daniel';
+
+ current_age := AGE(current_s_dob);
+
+ DBMS_OUTPUT.PUT_LINE('Student''s age is ' || current_age || ' years.');
+END; 

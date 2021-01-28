@@ -1,0 +1,27 @@
+DECLARE
+    temp1     NUMBER := &input_a_temp;
+    t_scale   CHAR := '&input_temp_scale';
+    new_temp  NUMBER;
+    new_scale CHAR;
+  BEGIN
+    IF t_scale != 'C'
+      AND
+      t_scale != 'F' THEN
+      dbms_output.Put_line ('The scale you input is not a valid scale');
+      new_temp := 0;
+      new_scale := 'C';
+    ELSE
+      IF t_scale = 'C' THEN
+        new_temp := ( ( 9 * temp1 ) / 5 ) + 32;
+        new_scale := 'F';
+      ELSE
+        new_temp := ( ( temp1 - 32 ) * 5 ) / 9;
+        new_scale := 'C';
+      END IF;
+    END IF;
+    dbms_output.Put_line ('The new temperature in scale '
+    ||new_scale
+    ||' is: '
+    ||new_temp);
+  END;
+/

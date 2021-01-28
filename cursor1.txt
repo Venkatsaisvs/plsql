@@ -1,0 +1,31 @@
+DECLARE 
+    CURSOR z_emp_info IS 
+      SELECT employee_id, 
+             first_name, 
+             last_name, 
+             salary 
+      FROM   employees; 
+    r_emp_info z_emp_info%ROWTYPE; 
+BEGIN 
+    OPEN z_emp_info; 
+
+    LOOP 
+        FETCH z_emp_info INTO r_emp_info; 
+
+        EXIT WHEN z_emp_info%NOTFOUND; 
+
+        dbms_output.Put_line('Employees Information:: ' 
+                             ||'  ID: ' 
+                             ||r_emp_info.employee_id 
+                             ||'  Name: ' 
+                             ||r_emp_info.first_name 
+                             ||' ' 
+                             ||r_emp_info.last_name); 
+    END LOOP; 
+
+    dbms_output.Put_line('Total number of rows : ' 
+                         ||z_emp_info%rowcount); 
+
+    CLOSE z_emp_info; 
+END;
+
